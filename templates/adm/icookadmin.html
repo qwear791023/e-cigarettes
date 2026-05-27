@@ -1,0 +1,133 @@
+<{extends file="adm/base.html"}>
+<{block name="head"}>
+<script type="text/javascript">
+</script>
+<{/block}>
+<{block name="content"}>
+<h3>icook_data管理</h3>
+
+<form class="form-inline" role="form">
+<div class="form-group">
+ <label class="sr-only" for="">ICOOK ID:</label>
+    <input type="text" class="form-control" id="exampleInputEmail2" placeholder="請輸入icookid"  name="icookid"/>
+</div>
+
+  <div class="form-group">
+ <label class="sr-only" for="">類型:</label>
+	<select name="type" class="form-control">
+		<option value="">請選擇類型</option>
+		
+		<option value="1">網友</option>
+	
+		
+	</select>
+	
+</div>
+ <div class="form-group">
+ <label class="sr-only" for="">狀態:</label>
+	<select name="status" class="form-control">
+		<option value="">請選擇狀態</option>
+		<option value="on">上線</option>
+		<option value="off">下線</option>
+		
+	</select>
+	
+</div>
+<input type="submit" value="search"/>
+</form>
+<a class="btn btn-info" href="../update.php" target="_blank">立即同步更新</a>
+<table class="table table-condensed tablesorter" id="sortable">
+  <thead>
+  	<tr>
+	  	<th>icookid</th>
+	  	<th>title</th>
+	  	<th>img</th>
+	  	<th>站內分享數</th>
+	  	<th>狀態</th>
+	  	<th>類型</th>
+	  	<th>標題是否自動更新</th>
+	  	
+      <th class="span2"></th>
+	  	<th class="span2"></th>
+  	</tr>
+  </thead>
+  <tbody>
+	  <{foreach from=$itemList item=item key=k}>
+	  	<tr id="id<{$item.ICOOK_ID}>">
+		  	<td><{$item.ICOOK_ID}></td>
+		  	<td><input type="text" name="title" value="<{$item.TITLE}>" class="input-large " style="width:350px;height:30px;"/></td>
+		  	<td><img src="<{$item.IMG}>" style="max-width:200px;height:auto;"/></td>
+		  	<td><{$item.F_COUNT}></td>
+			<td>
+				<select name="status">
+				<option value="on">上線</option>
+				<option value="off" <{if $item.STATUS=="off"}>selected="true"<{/if}>>下線</option>
+				</select>
+			</td>
+			<td>
+				<{if $item.TYPE==1}>
+				 達人
+				<{else if $item.TYPE==2}>
+				網友
+				<{/if}>
+			</td>
+			<td>
+				是<input type="radio" name="FIXED_TITLE[<{$item.ICOOK_ID}>]" value="N"  <{if $item.FIXED_TITLE=="N"}>checked="true"<{/if}>/>
+				否<input type="radio" name="FIXED_TITLE[<{$item.ICOOK_ID}>]" value="Y"  <{if $item.FIXED_TITLE=="Y"}>checked="true"<{/if}>/>
+			</td>
+			<td>
+				<a class="btn send" data-id="<{$item.ICOOK_ID}>"  >送出</a>
+				<a class="btn delete" data-id="<{$item.ICOOK_ID}>" >刪除</a>
+			</td>
+		</tr>
+	  <{/foreach}>
+  </tbody>
+</table>
+<{$pagebar}>
+<script>
+$(document).ready(function(event){
+	$('a.send').click(function(event){
+		var icookid=$(this).data('id');
+		var status=$('select[name=status]',$('#id'+icookid)).val();
+		var fixed_title=$('input[name^=FIXED_TITLE]:checked',$('#id'+icookid)).val();
+		var title=$('input[name=title]',$('#id'+icookid)).val();
+		$.ajax({
+			url:'idata.php',			
+			type:"POST",
+			dataType:'json',
+			data:{
+				ACT:'edit',
+				TITLE:title,
+				STATUS:status,
+				FIXED_TITLE:fixed_title,
+				ICOOK_ID:icookid
+			},
+			success:function(res){
+				alert(res.msg);
+			}
+		});
+	});
+	$('a.delete').click(function(event){
+		if(!confirm("確定刪除!!")){
+			return;
+		}
+		var icookid=$(this).data('id');
+		$.ajax({
+			url:'idata.php',			
+			type:"POST",
+			dataType:'json',
+			data:{
+				ACT:'delete',
+				ICOOK_ID:icookid
+			},
+			success:function(res){
+				alert(res.msg);
+				if(res.status)
+					window.location.reload();
+			}
+		});
+	});
+
+});
+</script>
+<{/block}>

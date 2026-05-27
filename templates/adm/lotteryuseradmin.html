@@ -1,0 +1,103 @@
+<{extends file="adm/base.html"}>
+<{block name="head"}>
+<script type="text/javascript">
+</script>
+<{/block}>
+<{block name="content"}>
+<h3>中獎user清單管理</h3>
+<a class="btn" href="outlotteryuser.php" target="_blank" >匯出</a>
+<!--
+<a class="btn" href="outrcount.php" target="_blank" >匯出單一食譜分享數(包含站內與fb分享數) </a> <a href="../updatefbshare.php" target="_blank">點此更新fb的shares count</a>
+<a class="btn" href="javscript:void(0);" id="getPrize"  >抽出本次得講者</a>
+-->
+<table class="table table-condensed tablesorter">
+    <thead>
+    <tr>
+	  	<th>獎項</th>
+	  	<th>已發放數</th>
+  	</tr>
+    <{foreach from=$sList  item=item key=k}>
+    <tr>
+        <td>
+            <{if $item.type==1}>
+            上上上籤
+            <{elseif $item.type==2}>
+            上上籤
+            <{elseif $item.type==3}>
+            上籤
+            <{/if}>
+        </td>
+        <td><{$item.total}></td>
+    </tr>
+    <{/foreach}>
+  </thead>
+
+</table>
+<table class="table table-condensed tablesorter" id="sortable">
+  <thead>
+  	<tr>
+	  	<th>#</th>
+	  	<th>名稱</th>
+	  	<th>PHONE</th>
+	  	<th>EMAIL</th>
+	  	<th>地址</th>
+	  	<th>獎項</th>
+	  	<th>IP</th>
+	  	<th>時間</th>
+      <th class="span2"></th>
+	  	<th class="span2"></th>
+  	</tr>
+  </thead>
+  <tbody>
+	  <{foreach from=$itemList item=item key=k}>
+	  	<tr>
+		  	<td><{$item.id}></td>
+		  	<td><{$item.name}></td>
+		  	<td><{$item.phone}></td>
+			<td><{$item.email}></td>
+			<td><{$item.address}></td>
+			<td>
+            <{if $item.type==1}>
+            上上上籤
+            <{elseif $item.type==2}>
+            上上籤
+            <{elseif $item.type==3}>
+            上籤
+            <{/if}>
+            </td>
+            <th><{$item.ip}></th>
+			<td><{$item.create_time}></td>
+            <td><button class="btn btn-danger" type="button" onClick="javascript:deleteItem(<{$item.id}>)">刪除</button></td>
+		</tr>
+	  <{/foreach}>
+  </tbody>
+</table>
+<{$pagebar}>
+<script>
+function deleteItem(id){
+    var r=confirm("是否刪除");
+    if(r){
+        $.ajax({
+            url:'lotteryuseradmin.php',
+            type:'POST',
+            data:{
+                id: id
+            },
+            dataType:"json",
+            success:function(res){
+                alert(res.msg);
+                if(res.status)
+                    window.location.reload();
+            
+            }
+        
+        });
+    }
+}
+$(document).ready(function(event){
+	$('#getPrize').click(function(event){
+		$.colorbox({iframe:true,href:'outprizeuser.php',innerWidth:'600px',innerHeight:'280px'});
+	});
+});
+</script>
+<{/block}>

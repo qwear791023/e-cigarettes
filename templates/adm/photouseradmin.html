@@ -1,0 +1,45 @@
+<{extends file="adm/base.html"}>
+<{block name="head"}>
+<script type="text/javascript">
+</script>
+<{/block}>
+<{block name="content"}>
+<h3>photo share user清單管理</h3>
+<a class="btn" href="outphotoshareuser.php" target="_blank" >匯出</a>
+<!--
+<a class="btn" href="outrcount.php" target="_blank" >匯出單一食譜分享數(包含站內與fb分享數) </a> <a href="../updatefbshare.php" target="_blank">點此更新fb的shares count</a>
+<a class="btn" href="javscript:void(0);" id="getPrize"  >抽出本次得講者</a>
+-->
+<table class="table table-condensed tablesorter" id="sortable">
+  <thead>
+  	<tr>
+	  	<th>#</th>
+	  	<th>名稱</th>
+	  	<th>FB</th>
+	  	<th>EMAIL</th>
+	  	<th>時間</th>
+      <th class="span2"></th>
+	  	<th class="span2"></th>
+  	</tr>
+  </thead>
+  <tbody>
+	  <{foreach from=$itemList item=item key=k}>
+	  	<tr>
+		  	<td><{$item.ID}></td>
+		  	<td><{$item.NAME}></td>
+		  	<td><a href="https://www.facebook.com/<{$item.FB_ID}>" target="_blank"><{$item.FB_ID}></a></td>
+			<td><{$item.EMAIL}></td>
+			<td><{$item.CREATE_TIME}></td>
+		</tr>
+	  <{/foreach}>
+  </tbody>
+</table>
+<{$pagebar}>
+<script>
+$(document).ready(function(event){
+	$('#getPrize').click(function(event){
+		$.colorbox({iframe:true,href:'outprizeuser.php',innerWidth:'600px',innerHeight:'280px'});
+	});
+});
+</script>
+<{/block}>

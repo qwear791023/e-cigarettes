@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<meta charset="utf-8">
+<!--[if lt IE 9]>  
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>  
+<![endif]-->  
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="css/anytime.css" rel="stylesheet">
+	<link href="css/jquery.tablesorter.css" rel="stylesheet">
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" ></script>
+	<script src="js/bootstrap.min.js"></script>
+
+<link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery.ui.all.css" rel="stylesheet">
+<link href="css/jquery.datetimepicker.css" rel="stylesheet">
+<link href="css/colorbox/colorbox.css" rel="stylesheet">
+	<{block name="head"}>
+	<{/block}>
+</head>
+<body >
+<div class="container main">
+	<h1>novape-event</h1>
+	<div class="navbar navbar-default" role="navigation">
+	  <div class="collapse navbar-collapse">
+	  	<{block name="nav"}>
+	    <ul class="nav navbar-nav">
+	      <li class="<{if $nav==1}>active<{/if}>"><a href="useradmin.php">報名列表</a></li>
+	      <li class="<{if $nav==2}>active<{/if}>"><a href="quizstatistics.php">遊戲統計</a></li>
+	    </ul>
+	   
+	    <{/block}>
+	  </div>
+	</div>
+	<div class="container">
+		<{block name="content"}><{/block}>
+	</div>
+</div>
+</body>
+</html>

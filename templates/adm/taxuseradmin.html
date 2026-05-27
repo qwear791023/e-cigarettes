@@ -1,0 +1,44 @@
+<{extends file="adm/base.html"}>
+<{block name="head"}>
+<script type="text/javascript">
+</script>
+<{/block}>
+<{block name="content"}>
+<h3>發票清單管理</h3>
+<a class="btn" href="outtaxuser.php" target="_blank" >匯出</a>
+<table class="table table-condensed tablesorter" id="sortable">
+  <thead>
+  	<tr>
+	  	<th>#</th>
+	  	<th>名稱</th>
+	  	<th>EMAIL</th>
+	  	<th>PHONE</th>
+	  	<th>統一發票</th>
+	  	<th>IP</th>
+	  	<th>時間</th>
+      <th class="span2"></th>
+	  	<th class="span2"></th>
+  	</tr>
+  </thead>
+  <tbody>
+	  <{foreach from=$itemList item=item key=k}>
+	  	<tr>
+		  	<td><{$item.ID}></td>
+		  	<td><{$item.NAME}></td>
+			<td><{$item.EMAIL}></td>
+			<td><{$item.PHONE}></td>
+			<td>
+				<table class="table table-bordered">
+				<{foreach from=$item.TAX item=taxitem key=index}>
+					<tr><td><{$taxitem.SN}> (<{$taxitem.ITYPE}>)</td></tr>			
+				<{/foreach}>
+				</table>
+			</td>
+			<td><{$item.IP}></td>
+			<td><{$item.CREATE_TIME}></td>
+		</tr>
+	  <{/foreach}>
+  </tbody>
+</table>
+<{$pagebar}>
+<{/block}>

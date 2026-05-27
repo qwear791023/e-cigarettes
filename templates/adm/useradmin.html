@@ -1,0 +1,96 @@
+<{extends file="adm/base.html"}>
+<{block name="head"}>
+<style>
+.answer-correct {
+    color: #28a745;
+    font-weight: bold;
+}
+.answer-incorrect {
+    color: #dc3545;
+    font-weight: bold;
+}
+.answer-null {
+    color: #6c757d;
+    font-style: italic;
+}
+</style>
+<script type="text/javascript">
+</script>
+<{/block}>
+<{block name="content"}>
+<h3>user清單管理</h3>
+
+<a class="btn" href="outshareuser.php" target="_blank" >匯出</a>
+<a class="btn btn-info" href="quizstatistics.php">查看遊戲統計</a>
+
+<table class="table table-condensed tablesorter" id="sortable">
+  <thead>
+  	<tr>
+	  	<th>#</th>
+	  	<th>名稱</th>
+	  	<th>PHONE</th>
+	  	<th>EMAIL</th>
+	  	<th>TEAM</th>
+	  	<th>SCHOOL</th>
+	  	<th>TEACHER</th>
+	  	<th>q1</th>
+		<th>q2</th>
+		<th>q3</th>
+		<th>q4</th>
+		<th>q5</th>
+		<th>q6</th>
+		<th>q7</th>
+		<th>q8</th>
+		<th>q9</th>
+		<th>q10</th>
+		<th>q11</th>
+		<th>q12</th>
+		<th>q13</th>
+		<th>q14</th>
+		<th>q15</th>
+		<th>q16</th>
+	  	<th>IP</th>
+	  	<th>時間</th>
+  	</tr>
+  </thead>
+  <tbody>
+	  <{foreach from=$itemList item=item key=k}>
+	  	<tr>
+		  	<td><{$item.id}></td>
+		  	<td><{$item.name}></td>
+		  	<td><{$item.phone}></td>
+			<td><{$item.email}></td>
+			<td><{$item.team}></td>
+			<td><{$item.school}></td>
+			<td><{$item.teacher}></td>
+			<td><{if $item.q1 !== null && $item.q1 == 1}><span class="answer-correct">正確</span><{elseif $item.q1 !== null && $item.q1 == 0}><span class="answer-incorrect">錯誤</span><{/if}></td>
+			<td><{if $item.q2 !== null && $item.q2 == 1}><span class="answer-correct">正確</span><{elseif $item.q2 !== null && $item.q2 == 0}><span class="answer-incorrect">錯誤</span><{/if}></td>
+			<td><{if $item.q3 !== null && $item.q3 == 1}><span class="answer-correct">正確</span><{elseif $item.q3 !== null && $item.q3 == 0}><span class="answer-incorrect">錯誤</span><{/if}></td>
+			<td><{if $item.q4 !== null && $item.q4 == 1}><span class="answer-correct">正確</span><{elseif $item.q4 !== null && $item.q4 == 0}><span class="answer-incorrect">錯誤</span><{/if}></td>
+			<td><{if $item.q5 !== null && $item.q5 == 1}><span class="answer-correct">正確</span><{elseif $item.q5 !== null && $item.q5 == 0}><span class="answer-incorrect">錯誤</span><{/if}></td>
+			<td><{if $item.q6 !== null && $item.q6 == 1}><span class="answer-correct">正確</span><{elseif $item.q6 !== null && $item.q6 == 0}><span class="answer-incorrect">錯誤</span><{/if}></td>
+			<td><{if $item.q7 !== null && $item.q7 == 1}><span class="answer-correct">正確</span><{elseif $item.q7 !== null && $item.q7 == 0}><span class="answer-incorrect">錯誤</span><{/if}></td>
+			<td><{if $item.q8 !== null && $item.q8 == 1}><span class="answer-correct">正確</span><{elseif $item.q8 !== null && $item.q8 == 0}><span class="answer-incorrect">錯誤</span><{/if}></td>
+			<td><{if $item.q9 !== null && $item.q9 == 1}><span class="answer-correct">正確</span><{elseif $item.q9 !== null && $item.q9 == 0}><span class="answer-incorrect">錯誤</span><{/if}></td>
+			<td><{if $item.q10 !== null && $item.q10 == 1}><span class="answer-correct">正確</span><{elseif $item.q10 !== null && $item.q10 == 0}><span class="answer-incorrect">錯誤</span><{/if}></td>
+			<td><{if $item.q11 !== null && $item.q11 == 1}><span class="answer-correct">正確</span><{elseif $item.q11 !== null && $item.q11 == 0}><span class="answer-incorrect">錯誤</span><{/if}></td>
+			<td><{if $item.q12 !== null && $item.q12 == 1}><span class="answer-correct">正確</span><{elseif $item.q12 !== null && $item.q12 == 0}><span class="answer-incorrect">錯誤</span><{/if}></td>
+			<td><{if $item.q13 !== null && $item.q13 == 1}><span class="answer-correct">正確</span><{elseif $item.q13 !== null && $item.q13 == 0}><span class="answer-incorrect">錯誤</span><{/if}></td>
+			<td><{if $item.q14 !== null && $item.q14 == 1}><span class="answer-correct">正確</span><{elseif $item.q14 !== null && $item.q14 == 0}><span class="answer-incorrect">錯誤</span><{/if}></td>
+			<td><{if $item.q15 !== null && $item.q15 == 1}><span class="answer-correct">正確</span><{elseif $item.q15 !== null && $item.q15 == 0}><span class="answer-incorrect">錯誤</span><{/if}></td>
+			<td><{if $item.q16 !== null && $item.q16 == 1}><span class="answer-correct">正確</span><{elseif $item.q16 !== null && $item.q16 == 0}><span class="answer-incorrect">錯誤</span><{/if}></td>
+            <td><{$item.ip}></td>
+			<td><{$item.createAt}></td>
+		</tr>
+	  <{/foreach}>
+  </tbody>
+</table>
+<{$pagebar}>
+<script>
+$(document).ready(function(event){
+	$('#getPrize').click(function(event){
+		$.colorbox({iframe:true,href:'outprizeuser.php',innerWidth:'600px',innerHeight:'280px'});
+	});
+});
+</script>
+<{/block}>

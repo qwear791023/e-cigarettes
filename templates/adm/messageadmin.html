@@ -1,0 +1,91 @@
+<{extends file="adm/base.html"}>
+<{block name="head"}>
+<script type="text/javascript">
+</script>
+<{/block}>
+<{block name="content"}>
+<h3>留言管理</h3>
+<a class="btn" href="outmessageuser.php" target="_blank" >匯出</a>
+<table class="table table-condensed tablesorter" id="sortable">
+  <thead>
+  	<tr>
+	  	<th>#</th>
+	  	<th>NAME</th>
+
+	  	<th>MESSAGE</th>
+	  	<th>EMAIL</th>
+	  	<th>TYPE</th>
+        <th>Status</th>
+        <th>是否分享</th>
+	  	<th>IP</th>
+	  	<th>時間</th>
+      <th class="span2"></th>
+	  	<th class="span2"></th>
+  	</tr>
+  </thead>
+  <tbody>
+	  <{foreach from=$itemList item=item key=k}>
+	  	<tr>
+		  	<td><{$item.FMID}></td>
+		  	<td><{$item.NAME}>
+
+                
+            </td>
+		  	
+		  	<td><{$item.MESSAGE}></td>
+			<td><{$item.EMAIL}></td>
+			<td>
+                <{if $item.TYPE==1}>
+                五行腐皮捲
+                <{elseif $item.TYPE==2}>
+                薑汁豬肉蛋包飯糰
+                <{elseif $item.TYPE==3}>
+              栗子香菇燒雞
+                <{else}>
+                藕片蒸肉
+                <{/if}>
+
+            </td>
+			<td>
+                <select name="status"  data-id="<{$item.FMID}>">
+                    <option value="N">下線</option>
+                    <option value="Y" <{if $item.STATUS=='Y'}>selected="true"<{/if}>>上線</option>
+                </select>
+            </td>
+			<td>
+                <{if $item.IS_SHARE=='Y'}>
+                已分享
+                <{else}>
+                未分享
+                <{/if}>
+            </td>
+			<td><{$item.IP}></td>
+			<td><{$item.CREATE_TIME}></td>
+		</tr>
+	  <{/foreach}>
+  </tbody>
+</table>
+<{$pagebar}>
+<script>
+$(document).ready(function(event){
+    $('select[name="status"]').change(function(event){
+        var status=$(this).val();
+        var fmid=$(this).data('id');
+        $.ajax({
+            url:'mdata.php',
+            data:{
+                fmid:fmid,
+                status:status
+            },
+            dataType:'json',
+            success:function(res){
+                alert(res.msg);
+            
+            }
+            
+        });    
+        
+    }); 
+});
+</script>
+<{/block}>

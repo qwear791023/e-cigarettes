@@ -1,0 +1,88 @@
+<{extends file="adm/base.html"}>
+<{block name="head"}>
+<script type="text/javascript">
+</script>
+<{/block}>
+<{block name="content"}>
+<h3>photo管理</h3>
+<div class="bs-example">
+<form class="form-inline" role="form">
+	<lable>查詢</label>
+	<div class="form-group">			
+		<input class="form-control" type="text" value="<{$smarty.get.s}>" placeholder="標題 or nickname or name" name="s"/>
+		
+	</div>
+	<div class="form-group">			
+		
+		<select name="status" data-pid="<{$item.PID}>" class="form-control">
+			<option value="Y" <{if $smarty.get.status=='Y'}>selected="true"<{/if}>>上線</option>
+			<option value="N" <{if $smarty.get.status=='N'}>selected="true"<{/if}>>下線</option>
+		</select>
+		
+	</div>
+<button type="submit" class="btn btn-default">search</button>
+</form>
+</div>
+<a class="btn" href="outphotouser.php" target="_blank" >匯出</a>
+<table class="table table-condensed tablesorter" id="sortable">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>暱稱</th>
+			<th style="width:100px;">photo</th>
+			<th>title</th>
+			<th>名稱</th>
+			<th>EMAIL</th>
+			<th>時間</th>
+			<th class="span2"></th>
+
+		</tr>
+	</thead>
+	<tbody>
+		<{foreach from=$itemList item=item key=k}>
+		<tr>
+			<td><{$item.PID}></td>
+			<td><{$item.NICKNAME}></td>	
+			<td>
+				<img src="<{$item.USER_IMG}>?w=50" />
+				<img src="<{$item.MATERIAL_IMG}>?w=100" title="<{$item.MATERIAL_DESC}>"/>
+				<img src="<{$item.DISK_IMG}>?w=100" title="<{$item.DISK_DESC}>"/>
+				<img src="<{$item.FOOD_IMG}>?w=100" title="<{$item.FOOD_DESC}>"/>
+			</td>
+			<td><{$item.TITLE}></td>		
+			<td><{$item.NAME}></td>		  	
+			<td><{$item.EMAIL}></td>
+			<td><{$item.CREATE_TIME}></td>
+			<td>
+				<select name="status" class="cs" data-pid="<{$item.PID}>">
+					<option value="Y" <{if $item.STATUS=='Y'}>selected="true"<{/if}>>上線</option>
+					<option value="N" <{if $item.STATUS=='N'}>selected="true"<{/if}>>下線</option>
+				</select>
+			</td>
+		</tr>
+		<{/foreach}>
+	</tbody>
+</table>
+<{$pagebar}>
+<script>
+$('.cs').change(function(event){
+	var pid=$(this).attr('data-pid');
+	var status=$(this).val();
+	$.ajax({
+		url:'photoadmin.php',
+		type:'POST',
+		dataType:'json',
+		data:{
+			PID:pid,
+			STATUS:status
+		},
+		success:function(res){
+			alert(res.msg);
+			if(res.status){
+				window.location.reload();
+			}
+		}
+	});
+});
+</script>
+<{/block}>

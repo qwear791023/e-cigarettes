@@ -1,0 +1,113 @@
+<{extends file="adm/base.html"}>
+<{block name="head"}>
+<script type="text/javascript" src="js/jquery.datetimepicker.js"></script>
+<script type="text/javascript" src="js/jquery.colorbox-min.js"></script>
+<{/block}>
+<{block name="content"}>
+<div id="crmCollectionView">
+    <h2>歡樂滿點獎-抽獎</h2>
+
+    <div class="form-inline" >
+        <form class="well" method="POST"  id="prizeForm">
+            品項<select name="TYPE" id="TYPE" >
+                <option value="joy-machine">日式奶油、餅乾擠花器</option>
+                <option value="joy-movie">威秀電影票</option>
+                <option value="joy-disk">可微波健康油切盤10吋</option>
+            </select>
+            名額 <input name="QUANITY" type="number" id="QUANITY" value="5"/>
+            <button type="button" class="btn btn-danger" id="prizeBtn">抽獎</button>
+        </form>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>序號</th>
+                <th>品項</th>
+                <th>名額</th>
+                <th>IP</th>
+                <th>儲存時間</th>
+                <th></th>
+            </tr>
+            <{foreach from=$itemList item=item}>
+            <tr>
+                <td><{$item.PR_ID}></td>
+                <td>
+			<{if $item.TYPE=='joy-machine'}>
+				日式奶油、餅乾擠花器
+			<{elseif $item.TYPE=='joy-movie'}>
+				威秀電影票
+			<{else}>
+				可微波健康油切盤10吋
+			<{/if}>
+                </td>
+                <td><{$item.QUANITY}></td>
+                <td><{$item.IP}></td>
+                <td><{$item.CREATE_TIME}></td>
+                <td><a class="btn btn-primary" href="download.php?prid=<{$item.PR_ID}>">下載</a></td>
+            </tr>
+            <{/foreach}>
+        </thead>
+        <tbody class="dealer-list">
+        </tbody>
+    </table>
+</div>
+
+<script>
+$(document).ready(function(event){
+    $( "#START_TIME" ).datepicker({dateFormat: 'yy-mm-dd'});
+    $( "#END_TIME" ).datepicker({dateFormat: 'yy-mm-dd'});
+    $('#prizeBtn').click(function(event){
+        if($('#QUANITY').val()<1){
+            alert("請輸入數量");
+            $('#QUANITY').focus();
+            return ;
+        }
+        var formdata=$('#prizeForm').serialize();
+        $.ajax({
+            url:'prize2.php',
+            data:formdata,
+            dataType:'json',
+            type:'POST',
+            success:function(res){
+                var html='<form id="prize">';
+                html+='<input type="hidden" name="TYPE" value="'+$('#TYPE').val()+'"/>';
+                html+='<input type="hidden" name="QUANITY" value="'+$('#QUANITY').val()+'"/>';
+                html+='<table class="table table-bordered">';
+                html+='<tr><td colspan="3">'+$( "#TYPE option:selected" ).text()+' 中獎名單</td></tr>';
+                html+='<tr><td>姓名</td><td>食譜名稱</td><td>id</td></tr>';
+                for(var i in res){
+                    var item=res[i];
+                    html+="<tr>";
+                    html+="<td>"+item.NICKNAME+"</td>";
+                    html+="<td>"+item.TITLE+"</td>";
+                    html+="<td>"+item.ICOOK_ID+"</td>";
+                    html+='<input type="hidden" name="ICOOK_ID[]" value="'+item.ICOOK_ID+'"/>';
+                    html+="</tr>";
+                }
+                html+='<tr><td colspan="4" class="text-center"><a  class="btn btn-info" id="saveBtn">儲存</a></td></tr>';
+                html+='</table></form>';
+                $.colorbox({html:html,onComplete :function(){
+                    $('#saveBtn').click(function(envet){
+                        var formdata=$('#prize').serialize();
+                        $.ajax({
+                            url:'prizesave.php',
+                            type:'POST',
+                            data:formdata,
+                            dataType:'json',
+                            success:function(res){
+                                alert(res.msg);
+                                if(res.status)
+                                       window.location.reload();
+                            }
+                        });
+                    });
+                
+                }});
+            }
+        });
+
+    });
+});
+</script>
+<{/block}>

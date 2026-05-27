@@ -1,0 +1,52 @@
+<{extends file="adm/base.html"}>
+<{block name="head"}>
+<script type="text/javascript">
+</script>
+<{/block}>
+<{block name="content"}>
+<div id="crmCollectionView">
+    <h2>留言日統計資料</h2>
+
+    <div class="form-inline" id="searchForm">
+        <form class="well" method="get">
+            開始日期
+            <input name="sdate" id="sdate" type="text" value="<{$smarty.get.sdate}>"/>
+             ~結束日期
+             <input name="edate" id="edate" type="text" value="<{$smarty.get.edate}>"/>
+           
+            <button type="reset" class="btn btn-default">clear</button>
+            <button type="submit" class="btn btn-default searchBtn">search</button>
+        </form>
+    </div>
+    <a class="btn btn-primary" href="outputmessagestatistics.php?sdate=<{$smarty.get.sdate}>&edate=<{$smarty.get.edate}>" target="_blank">下載</a>
+
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>DATE</th>
+                <th>人數</th>
+                <th>留言數</th>
+            </tr>
+            <{foreach from=$itemList item=item}>
+            <tr>
+                <td><{$item.DATE}></td>
+                <td><{$item.P_TOTAL}></td>
+                <td><{$item.I_TOTAL}></td>
+            </tr>
+            <{/foreach}>
+        </thead>
+        <tbody class="dealer-list">
+        </tbody>
+    </table>
+    <div class="pagination">
+      <{$pagebar}>
+    </div>
+</div>
+<script>
+$(document).ready(function(event){
+    $( "#sdate" ).datepicker({dateFormat: 'yy-mm-dd'});
+    $( "#edate" ).datepicker({dateFormat: 'yy-mm-dd'});
+});
+</script>
+<{/block}>

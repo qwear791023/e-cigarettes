@@ -1,0 +1,149 @@
+<{extends file="adm/base.html"}>
+<{block name="head"}>
+<script type="text/javascript">
+</script>
+<{/block}>
+<{block name="content"}>
+<h3>user清單管理</h3>
+<a class="btn" href="outlottery.csv" target="_blank" >匯出</a><br/>
+<!--
+<a class="btn" href="outrcount.php" target="_blank" >匯出單一食譜分享數(包含站內與fb分享數) </a> <a href="../updatefbshare.php" target="_blank">點此更新fb的shares count</a>
+<a class="btn" href="javscript:void(0);" id="getPrize"  >抽出本次得講者</a>
+-->
+禮券2000元
+<table class="table table-condensed tablesorter" id="sortable">
+  <thead>
+  	<tr>
+	  	<th>#</th>
+	  	<th>名稱</th>
+	  	<th>PHONE</th>
+	  	<th>EMAIL</th>
+	  	<th>ip</th>
+	  	<th>時間</th>
+      <th class="span2"></th>
+	  	<th class="span2"></th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<{foreach from=$first item=item}>
+	  	<tr>
+		  	<td><{$item.id}></td>
+		  	<td><{$item.name}></td>
+		  	<td><{$item.phone}></td>
+			<td><{$item.email}></td>
+			<td><{$item.ip}></td>
+			<td><{$item.create_time}></td>
+		</tr>
+	 <{/foreach}>
+  </tbody>
+</table>
+時光快樂長久
+<table class="table table-condensed tablesorter" id="sortable">
+  <thead>
+  	<tr>
+	  	<th>#</th>
+	  	<th>名稱</th>
+	  	<th>PHONE</th>
+	  	<th>EMAIL</th>
+	  	<th>ip</th>
+	  	<th>時間</th>
+      <th class="span2"></th>
+	  	<th class="span2"></th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<{foreach from=$second item=item}>
+	  	<tr>
+		  	<td><{$item.id}></td>
+		  	<td><{$item.name}></td>
+		  	<td><{$item.phone}></td>
+			<td><{$item.email}></td>
+			<td><{$item.ip}></td>
+			<td><{$item.create_time}></td>
+		</tr>
+	 <{/foreach}>
+  </tbody>
+</table>
+時光面面有福
+<table class="table table-condensed tablesorter" id="sortable">
+  <thead>
+  	<tr>
+	  	<th>#</th>
+	  	<th>名稱</th>
+	  	<th>PHONE</th>
+	  	<th>EMAIL</th>
+	  	<th>ip</th>
+	  	<th>時間</th>
+      <th class="span2"></th>
+	  	<th class="span2"></th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<{foreach from=$third item=item}>
+	  	<tr>
+		  	<td><{$item.id}></td>
+		  	<td><{$item.name}></td>
+		  	<td><{$item.phone}></td>
+			<td><{$item.email}></td>
+			<td><{$item.ip}></td>
+			<td><{$item.create_time}></td>
+		</tr>
+	 <{/foreach}>
+  </tbody>
+</table>
+行動電源
+<table class="table table-condensed tablesorter" id="sortable">
+  <thead>
+    <tr>
+        <th>#</th>
+        <th>名稱</th>
+        <th>PHONE</th>
+        <th>EMAIL</th>
+        <th>ip</th>
+        <th>時間</th>
+      <th class="span2"></th>
+        <th class="span2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <{foreach from=$fouth item=item}>
+        <tr>
+            <td><{$item.id}></td>
+            <td><{$item.name}></td>
+            <td><{$item.phone}></td>
+            <td><{$item.email}></td>
+            <td><{$item.ip}></td>
+            <td><{$item.create_time}></td>
+        </tr>
+     <{/foreach}>
+  </tbody>
+</table>
+保鮮盒
+<table class="table table-condensed tablesorter" id="sortable">
+  <thead>
+    <tr>
+        <th>#</th>
+        <th>名稱</th>
+        <th>PHONE</th>
+        <th>EMAIL</th>
+        <th>ip</th>
+        <th>時間</th>
+      <th class="span2"></th>
+        <th class="span2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <{foreach from=$fifth item=item}>
+        <tr>
+            <td><{$item.id}></td>
+            <td><{$item.name}></td>
+            <td><{$item.phone}></td>
+            <td><{$item.email}></td>
+            <td><{$item.ip}></td>
+            <td><{$item.create_time}></td>
+        </tr>
+     <{/foreach}>
+  </tbody>
+</table>
+
+<{/block}>

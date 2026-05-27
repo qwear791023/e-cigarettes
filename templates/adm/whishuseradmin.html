@@ -1,0 +1,74 @@
+<{extends file="adm/base.html"}>
+<{block name="head"}>
+<script type="text/javascript">
+</script>
+<{/block}>
+<{block name="content"}>
+<h3>祈福user清單管理</h3>
+<a class="btn" href="outwishuser.php" target="_blank" >匯出</a>
+<!--
+<a class="btn" href="outrcount.php" target="_blank" >匯出單一食譜分享數(包含站內與fb分享數) </a> <a href="../updatefbshare.php" target="_blank">點此更新fb的shares count</a>
+<a class="btn" href="javscript:void(0);" id="getPrize"  >抽出本次得講者</a>
+-->
+<table class="table table-condensed tablesorter" id="sortable">
+  <thead>
+  	<tr>
+	  	<th>#</th>
+	  	<th>類型</th>
+	  	<th>暱稱</th>
+	  	<th>祈福小語</th>
+	  	<th>名稱</th>
+	  	<th>PHONE</th>
+	  	<th>EMAIL</th>
+	  	<th>地址</th>
+	  	<th>IP</th>
+	  	<th>時間</th>
+      <th class="span2"></th>
+	  	<th class="span2"></th>
+  	</tr>
+  </thead>
+  <tbody>
+	  <{foreach from=$itemList item=item key=k}>
+	  	<tr>
+		  	<td><{$item.id}></td>
+		  	<td>
+            <{if $item.wish_word!=''}>
+            <h4><{$item.wish_word}></h4>
+            <{else}>
+                <h4>
+                <{if $item.wish_type ==1}>
+                順風平安
+                <{elseif  $item.wish_type ==2}>
+                招財進寶
+                <{elseif  $item.wish_type ==3}>
+                覓得良緣
+                <{elseif  $item.wish_type ==4}>
+                學業進步
+                <{elseif  $item.wish_type ==5}>
+                身體健康
+                <{/if}>
+                </h4>
+            <{/if}>
+
+            </td>
+		  	<td><{$item.msg}></td>
+		  	<td><{$item.nickname}></td>
+		  	<td><{$item.name}></td>
+		  	<td><{$item.phone}></td>
+			<td><{$item.email}></td>
+			<td><{$item.address}></td>
+            <th><{$item.ip}></th>
+			<td><{$item.create_time}></td>
+		</tr>
+	  <{/foreach}>
+  </tbody>
+</table>
+<{$pagebar}>
+<script>
+$(document).ready(function(event){
+	$('#getPrize').click(function(event){
+		$.colorbox({iframe:true,href:'outprizeuser.php',innerWidth:'600px',innerHeight:'280px'});
+	});
+});
+</script>
+<{/block}>
