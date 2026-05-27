@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="index.js"></script>
+    <title>復古食寓</title>
+</head>
+
+<body class="bg-[url('images/index/pc-bg.jpg')]">
+    <div class="relative max-w-[500px] h-screen mx-auto flex flex-col">
+        <div class="intro w-full h-screen bg-[#4b0004] absolute top-0 left-0 z-[999] flex justify-center items-center">
+            <img class="opacity-0" src="images/index/logo.png" alt="">
+        </div>
+        <header id="h-img" class="relative w-full max-w-[500px] -mb-5 z-[9]">
+            <div class="menubar absolute top-0 right-0 w-[80px] h-[80px] cursor-pointer z-[100] hover:opacity-80">
+            </div>
+            <img src="images/index/header.png" alt="">
+        </header>
+        <div class="menu flex-1 relative hidden w-full h-full bg-[#e3d6cd] grid grid-cols-2 z-[2]">
+            <a href="index.php" class="flex justify-center items-end pb-10 hover:opacity-80">
+                <img src="images/menu/m1.png" alt="">
+            </a>
+            <a href="introduce.html" class="flex justify-center items-end pb-10 hover:opacity-80">
+                <img src="images/menu/m2.png" alt="">
+            </a>
+            <a href="reality.html" class="flex justify-center items-end pb-10 hover:opacity-80">
+                <img src="images/menu/m3.png" alt="">
+            </a>
+            <a href="map.html" class="flex justify-center items-end pb-10 hover:opacity-80">
+                <img src="images/menu/m4.png" alt="">
+            </a>
+            <a href="event.html" class="flex justify-center items-end pb-10 hover:opacity-80">
+                <img src="images/menu/m5.png" alt="">
+            </a>
+            <a href="#" class="flex justify-center items-end pb-10 hover:opacity-80">
+                <img src="images/menu/m6.png" alt="">
+            </a>
+        </div>
+        <div class="content flex flex-1 relative z-[1]">
+            <div class="index flex items-end w-full bg-[#fbf7ec]">
+                <div id="p1">
+                    <img class="absolute left-[10%] bottom-[50%]" src="images/index/p1.png" alt="">
+                    <img class="absolute left-[9%] bottom-[4%]" src="images/index/p2.png" alt="">
+                    <button type="button" class="absolute left-[5%] bottom-[42%] animate-pulse">
+                        <img src="images/index/go.png" alt="">
+                    </button>
+                    <img src="images/index/bg1.jpg" alt="">
+                </div>
+            </div>
+            <div class="p7 hidden items-start justify-center w-full h-full bg-[url('images/p7/p7-bg2.png')]">
+                <div id="p4" class="hidden">
+                    <img class="g1 absolute bottom-[27%] left-[49%] z-[2] opacity-0" src="images/p7/g1.png" alt="">
+                    <img class="g2 absolute bottom-[27%] right-[49%] z-[2] opacity-0" src="images/p7/g2.png" alt="">
+                    <img class="t1 absolute bottom-[33%] left-[50%] -mx-[85px] z-[2] opacity-0" src="images/p7/t1.png"
+                        alt="">
+                    <button type="button" class="btn go absolute bottom-[19%] left-[6%] z-[1] opacity-0">
+                        <img src="images/p7/p7-go.png" alt="">
+                    </button>
+                    <button type="button" class="btn menubar absolute bottom-[19%] right-[6%] z-[1] opacity-0">
+                        <img src="images/p7/p7-gomenu.png" alt="">
+                    </button>
+                </div>
+                <div id="p5" class="absolute w-full h-full hidden items-end justify-center">
+                    <img class="g3 absolute bottom-[28%] left-[48%] -mx-[50px] z-[2] opacity-0" src="images/p7/g3.png"
+                        alt="">
+                    <div class="t2 absolute bottom-[13%] left-0 w-full flex flex-col items-center z-[2] opacity-0">
+                        <img class="" src="images/p7/t2-1.png" alt="">
+                        <div class="flex items-end relative mt-3">
+                            <img class="" src="images/p7/t2-2.png" alt="">
+                            <div class="text-[#422c25] text-[32px] leading-[30px] px-2 font-bold"><{$total}></div>
+                            <img class="" src="images/p7/t2-3.png" alt="">
+                        </div>
+                    </div>
+                    <img class="t3 absolute bottom-[13%] left-[50%] -mx-[165px] z-[2] opacity-0" src="images/p7/t3.png"
+                        alt="">
+                    <img class="t4 absolute bottom-[13%] left-[50%] -mx-[125px] z-[2] opacity-0" src="images/p7/t4.png"
+                        alt="">
+                    <img class="reel relative mb-5 z-[1] opacity-0" src="images/reel.png" alt="">
+                </div>
+                <img class="mt-20" src="images/p7/p7-bg1.png" alt="">
+            </div>
+            <div class="p8 hidden w-full h-full">
+                <div class="p8-1 relative hidden">
+                    <img class="p8-1-1 absolute bottom-[32%] left-[18%] opacity-0" src="images/p8/p8-1.png" alt="">
+                    <img class="w-full" src="images/p8/p8-bg1.jpg" alt="">
+                </div>
+                <div class="p8-2 relative hidden w-full h-full hidden items-end justify-center bg-contain bg-no-repeat bg-[url('images/p8/p8-bg2.jpg')] bg-[#000000]">
+                    <img class="p8-2-1 absolute z-[3] bottom-[11%] left-[50%] -mx-[110px] opacity-0" src="images/p8/p8-2.png" alt="">
+                    <img class="p8-2-2 absolute z-[3] bottom-[15%] left-[50%] -mx-[140px] opacity-0" src="images/p8/p8-3.png" alt="">
+                    <img class="p8-2-3 absolute z-[3] bottom-[8%] right-[10%] opacity-0" src="images/p8/p8-4.png" alt="">
+                    <div class="book absolute w-full h-full hidden z-[5]">
+                        <button type="button" class="close absolute z-[3] top-5 right-5">
+                            <img src="images/close.png" alt="">
+                        </button>
+                        <img class="p8-2-4 relative z-[2]" src="images/p8/p8-pic.jpg" alt="">
+                    </div>
+                    <img class="reel relative mb-5 z-[2] opacity-0" src="images/reel.png" alt="">
+                    <button type="button" class="bookbtn absolute bottom-0 left-0 w-full h-[40%] z-[4]"></button>
+                </div>
+            </div>
+            <div class="p9 hidden w-full h-full items-end justify-center">
+                <div class="q1 flex items-end justify-center relative  w-full h-full bg-contain bg-no-repeat bg-[url('images/p9/p9-bg1.jpg')] bg-[#000000]">
+                    <div class="q1-1 absolute z-[3] bottom-[9%] left-[50%] -mx-[150px] opacity-0">
+                        <button type="button" class="as1 absolute top-[48px]">
+                            <img class="off" src="images/o.png" alt="">
+                            <img class="on hidden" src="images/tick.png" alt="">
+                        </button>
+                        <button type="button" class="as2 absolute top-[93px]">
+                            <img class="off" src="images/o.png" alt="">
+                            <img class="on hidden" src="images/tick.png" alt="">
+                        </button>
+                        <img src="images/p9/9-1.png" alt="">
+                    </div>
+                    <div class="q1-2 absolute z-[1] bottom-[10%] left-[50%] -mx-[155px] opacity-0">
+                        <div class="get absolute -bottom-[45%] -right-[10px] flex items-center">
+                            <img src="images/get.png" alt="">
+                            <img src="images/tt1.png" alt="">
+                        </div>
+                        <img src="images/p9/9-2.png" alt="">
+                    </div>
+                    <div class="q1-3 absolute z-[1] bottom-[12%] left-[50%] -mx-[140px] opacity-0">
+                        <button type="button" class="close absolute z-[3] -top-12 -right-5">
+                            <img src="images/again.png" alt="">
+                        </button>
+                        <img src="images/p9/9-3.png" alt="">
+                    </div>
+                    <img class="reel relative mb-5 z-[2]" src="images/reel.png" alt="">
+                    <img class="w-full h-full absolute top-0 left-0 z-[1]" src="images/p9/p9-bg1.jpg" alt="">
+                </div>    
+                <div class="q2 hidden">
+                    <div class="q2-1 absolute z-[3] bottom-[10%] left-[50%] -mx-[111px]">
+                        <button type="button" class="as1 absolute top-[48px] -left-[10px]">
+                            <img class="off" src="images/o.png" alt="">
+                            <img class="on hidden" src="images/tick.png" alt="">
+                        </button>
+                        <button type="button" class="as2 absolute top-[93px] -left-[10px]">
+                            <img class="off" src="images/o.png" alt="">
+                            <img class="on hidden" src="images/tick.png" alt="">
+                        </button>
+                        <img src="images/p9/9-4.png" alt="">
+                    </div>
+                    <div class="q2-2 absolute z-[1] bottom-[10%] left-[50%] -mx-[155px] opacity-0">
+                        <div class="get absolute -bottom-[35%] right-0 flex items-center">
+                            <img src="images/get.png" alt="">
+                            <img src="images/tt2.png" alt="">
+                        </div>
+                        <img src="images/p9/9-5.png" alt="">
+                    </div>
+                    <div class="q2-3 absolute z-[1] bottom-[14%] left-[50%] -mx-[155px] opacity-0">
+                        <button type="button" class="close absolute z-[3] -top-12 -right-5">
+                            <img src="images/again.png" alt="">
+                        </button>
+                        <img src="images/p9/9-6.png" alt="">
+                    </div>
+                    <img class="reel relative mb-5 z-[2]" src="images/reel.png" alt="">
+                    <img class="w-full h-full absolute top-0 left-0 z-[1]" src="images/p9/p9-bg2.jpg" alt="">
+                </div>    
+                <div class="q3 w-full h-full items-end justify-center hidden">
+                    <div class="q3-s w-full h-full absolute top-0 left-0 z-[2] flex items-end justify-center">
+                        <img class="s1 absolute bottom-[15%] left-[50%] -mx-[55px] z-[3]" src="images/p10/10-1.png" alt="">
+                        <div class="s2 absolute bottom-[6%] z-[3] flex flex-col items-center justify-center opacity-0">
+                            <img src="images/p10/10-2.png" alt="">
+                            <img class="mt-3" src="images/p10/10-3.png" alt="">
+                        </div>
+                        <img class="s3 absolute bottom-[6%] z-[3] opacity-0" src="images/p10/10-4.png" alt="">
+                        <img class="bg1 w-full h-full absolute top-0 left-0 mb-5 z-[1]" src="images/p10/bg-10-1.jpg" alt="">
+                        <img class="bg2 w-full h-full absolute top-0 left-0 mb-5 z-[1] opacity-0" src="images/p10/bg-10-2.jpg" alt="">
+                        <img class="reel relative z-[2]" src="images/reel.png" alt="">
+                    </div>
+                    <div class="q3-a w-full h-full absolute top-0 left-0 z-[1] flex items-end justify-center opacity-0">
+                        <div class="q3-1 absolute z-[3] bottom-[10%] left-[50%] -mx-[178px]">
+                            <button type="button" class="as1 absolute top-[48px] left-[20px]">
+                                <img class="off" src="images/o.png" alt="">
+                                <img class="on hidden" src="images/tick.png" alt="">
+                            </button>
+                            <button type="button" class="as2 absolute top-[93px] left-[20px]">
+                                <img class="off" src="images/o.png" alt="">
+                                <img class="on hidden" src="images/tick.png" alt="">
+                            </button>
+                            <img src="images/p10/10-5.png" alt="">
+                        </div>
+                        <div class="q3-2 absolute z-[1] bottom-[13%] left-[50%] -mx-[165px] opacity-0">
+                            <div class="get absolute -bottom-[85%] right-0 flex items-center">
+                                <img src="images/get.png" alt="">
+                                <img src="images/tt3.png" alt="">
+                            </div>
+                            <img src="images/p10/10-7.png" alt="">
+                        </div>
+                        <div class="q3-3 absolute z-[1] bottom-[7%] left-[50%] -mx-[149px] opacity-0">
+                            <button type="button" class="close absolute z-[3] -top-12 -right-5">
+                                <img src="images/again.png" alt="">
+                            </button>
+                            <img src="images/p10/10-6.png" alt="">
+                        </div>
+                        <img class="reel relative mb-5 z-[2]" src="images/reel.png" alt="">
+                        <img class="w-full h-full absolute top-0 left-0 z-[1]" src="images/p10/bg-10-3.jpg" alt="">
+                    </div>
+                </div>
+                <div class="q4 w-full h-full items-end justify-center hidden">
+                    <div class="q4-s w-full h-full absolute top-0 left-0 z-[2] flex items-end justify-center">
+                        <img class="s1 absolute bottom-[15%] left-[50%] -mx-[115px] z-[3]" src="images/p11/11-2a.png" alt="">
+                        <img class="s2 absolute bottom-[13%] left-[50%] -mx-[130px] z-[3] opacity-0" src="images/p11/11-2b.png" alt="">
+                        <img class="s3 absolute bottom-[6%] left-[50%] -mx-[155px] z-[3] opacity-0" src="images/p11/11-2c.png" alt="">
+                        <img class="w-full h-full absolute top-0 left-0 mb-5 z-[1]" src="images/p11/bg-p11-1.jpg" alt="">
+                        <img class="reel relative z-[2]" src="images/reel.png" alt="">
+                    </div>
+                    <div class="q4-a w-full h-full absolute top-0 left-0 z-[1] flex items-end justify-center opacity-0">
+                        <div class="q4-1 absolute z-[3] bottom-[9%] left-[50%] -mx-[185px]">
+                            <button type="button" class="as1 absolute top-[48px] left-[40px]">
+                                <img class="off" src="images/o.png" alt="">
+                                <img class="on hidden" src="images/tick.png" alt="">
+                            </button>
+                            <button type="button" class="as2 absolute top-[93px] left-[40px]">
+                                <img class="off" src="images/o.png" alt="">
+                                <img class="on hidden" src="images/tick.png" alt="">
+                            </button>
+                            <img src="images/p11/11-3.png" alt="">
+                        </div>
+                        <div class="q4-2 absolute z-[1] bottom-[13%] left-[50%] -mx-[165px] opacity-0">
+                            <div class="get absolute -bottom-[20%] right-0 flex items-center">
+                                <img src="images/get.png" alt="">
+                                <img src="images/tt4.png" alt="">
+                            </div>
+                            <img src="images/p11/11-4b.png" alt="">
+                        </div>
+                        <div class="q4-3 absolute z-[1] bottom-[8%] left-[50%] -mx-[149px] opacity-0">
+                            <button type="button" class="close absolute z-[3] -top-12 -right-5">
+                                <img src="images/again.png" alt="">
+                            </button>
+                            <img src="images/p11/11-4a.png" alt="">
+                        </div>
+                        <img class="reel relative mb-5 z-[2]" src="images/reel.png" alt="">
+                        <img class="w-full h-full absolute top-0 left-0 z-[1]" src="images/p11/bg-p11-2.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="hidden relative p12-4 w-full h-full flex justify-center pt-10 bg-[url('images/p12-4/bg-p12-4.jpg')]">
+                <img class="absolute top-[5%] right-[55%]" src="images/tt1.png" alt="">
+                <img class="absolute top-[6%] right-[39%]" src="images/tt2.png" alt="">
+                <img class="absolute top-[5%] right-[23%]" src="images/tt3.png" alt="">
+                <img class="absolute top-[6%] right-[7%]" src="images/tt4.png" alt="">
+                <img src="images/p12-4/bg2.png" alt="">
+                <img class="absolute top-[31%] right-[50%] -mx-[170px]" src="images/p12-4/btn1.png" alt="">
+                <button class="databtn absolute bottom-[30%] right-[50%] -mx-[80px] hover:opacity-80" type="button">
+                    <img src="images/p12-4/lottery.png" alt="">
+                </button>
+                <img class="absolute bottom-[10%] left-[10%]" src="images/p12-4/pic1.png" alt="">
+                <img class="absolute bottom-[20%] left-[10%]" src="images/p12-4/pic2.png" alt="">
+                <img class="absolute bottom-[5%] right-0" src="images/p12-4/pic3.png" alt="">
+                <img class="absolute top-[18%] right-[50%] -mx-[140px]" src="images/p12-4/t1.png" alt="">
+            </div>
+            <div class="hidden p12-5 w-full h-full bg-[url('images/p12-4/bg-p12-4.jpg')] flex flex-col items-start">
+                <form id="form1" style="width: 100%;">
+                <div class="relative flex-1 flex-col mt-[10%] pt-[40%] pb-[5%] px-[5%] w-full h-full flex items-center">
+                    <div class="relative z-[2] flex w-full items-center px-5 mb-5">
+                        <img src="images/p12-5/t1.png" alt="">
+                        <input type="text" name="name" id="name" class="ml-2 block w-full px-3 py-2 bg-transparent border border-rose-900 rounded-md text-sm shadow-sm placeholder-slate-400
+                        focus:outline-none focus:border-rose-700 focus:ring-1 focus:ring-rose-700
+                        disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                        invalid:border-rose-500 invalid:text-rose-400
+                        focus:invalid:border-rose-500 focus:invalid:ring-rose-500
+                      ">
+                    </div>
+                    <div class="relative z-[2] flex w-full items-center px-5 mb-5">
+                        <img src="images/p12-5/t2.png" alt="">
+                        <input type="tel" name="phone" id="phone" class="ml-2 block w-full px-3 py-2 bg-transparent border border-rose-900 rounded-md text-sm shadow-sm placeholder-slate-400
+                        focus:outline-none focus:border-rose-700 focus:ring-1 focus:ring-rose-700
+                        disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                        invalid:border-rose-500 invalid:text-rose-400
+                        focus:invalid:border-rose-500 focus:invalid:ring-rose-500
+                      ">
+                    </div>
+                    <div class="relative z-[2] flex w-full items-center px-5 mb-5">
+                        <img src="images/p12-5/t3.png" alt="">
+                        <input type="email" name="email" id="email" class="ml-2 block w-full px-3 py-2 bg-transparent border border-rose-900 rounded-md text-sm shadow-sm placeholder-slate-400
+                        focus:outline-none focus:border-rose-700 focus:ring-1 focus:ring-rose-700
+                        disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                        invalid:border-rose-500 invalid:text-rose-400
+                        focus:invalid:border-rose-500 focus:invalid:ring-rose-500
+                      ">
+                    </div>
+                    <div class="relative z-[2] flex w-full items-center px-5 mb-5">
+                        <img src="images/p12-5/t4.png" alt="">
+                        <input type="text" name="address" id="address" class="ml-2 block w-full px-3 py-2 bg-transparent border border-rose-900 rounded-md text-sm shadow-sm placeholder-slate-400
+                        focus:outline-none focus:border-rose-700 focus:ring-1 focus:ring-rose-700
+                        disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                        invalid:border-rose-500 invalid:text-rose-400
+                        focus:invalid:border-rose-500 focus:invalid:ring-rose-500
+                      ">
+                    </div>
+                    <div class="w-full flex-1 flex justify-center items-start">
+                        <button class="relative z-[2] hover:opacity-80" onClick="javascript: validForm();" type="button"><img src="images/p12-5/send.png"
+                            alt=""></button>
+                            <button type="button" class="relative z-[2] ml-2 hover:opacity-80">
+                                <img src="images/p12-5/share.png" alt="" onClick="javascript: share();">
+                            </button>
+                    </div>
+                    <img class="absolute top-0" src="images/p12-5/bg1.png" alt="">
+                </div>
+                </form>
+                <!-- <div class="w-full pt-10 flex-1 flex justify-center items-start">
+                    <button type="button" class="mr-5 hover:opacity-80" onClick="javascript: invite();">
+                        <img src="images/p12-5/invite.png" alt="">
+                    </button>
+                    <button type="button" class="hover:opacity-80">
+                        <img src="images/p12-5/share.png" alt="" onClick="javascript: share();">
+                    </button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <script>
+function share(){
+    FB.ui({
+        method: 'feed',
+        caption: '2022 復古食寓',
+        redirect_uri: 'index.php',
+        link: '<{$smarty.const.EVENT_URL}>?t=<{$smarty.get.t}>'
+    }, function(response){
+       // window.location.href="data.php#name";
+    });
+}
+function invite() {
+    if (navigator.share) {
+        navigator.share({
+            title: '2022 復古食寓',
+            text: `歡迎回到1985年，細細品味「五木的經典美味」，復古食寓將帶你回味經典與過去再次相遇，一起重返懷舊美好時光！
+                循著時光的痕跡，破解食光謎底，完成任務獲得抽獎資格，即有機會得到價值萬元的名牌鑄鐵鍋及活動限量推出的環保餐具唷！
+            `,
+            url: '<{$smarty.const.EVENT_URL}>',
+        })
+        .then(() => console.log('成功！'))
+            .catch((error) => console.log('發生錯誤', error));
+    }
+}
+function validForm(){
+    if($('#name').val()==''){
+        $('#name').focus();
+        alert("請輸入姓名");
+        return;
+    }
+    if($('#phone').val()==''){
+        $('#phone').focus();
+        alert("請輸入電話");
+        return;
+    }
+    var pattern = new RegExp();
+    pattern = /^\d{10,10}$/;
+    if (!pattern .test($('#phone').val())) {
+        alert("手機號碼不對");
+        $('#phone').focus();
+        return; //"email格式不對"
+    }
+
+    var mail = $('#email').val();
+    var pattern = new RegExp();
+    pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (!pattern .test(mail)) {
+        alert("電子信箱格式不對");
+        $('#email').focus();
+        return; //"email格式不對"
+    }
+    if($('#address').val()==''){
+        $('#address').focus();
+        alert('請輸入地址');
+        return;
+    }
+    /*
+       if(!$('#privacy',$('#'+formid)).is(':checked')){
+       alert("請先閱讀隱私權政策!!");
+       return;
+       }
+     */
+    var formdata = $('#form1').serialize();
+    $.ajax({
+        url: 'data.php',
+        dataType:'json',
+        type:'POST',
+        data: formdata,
+        success:function(res){
+            alert(res.msg);
+            if(res.status){
+                window.location.href="index.php";
+            }
+        }
+
+    });
+}
+    </script>
+    <script>
+window.fbAsyncInit = function() {
+    FB.init({
+        appId      : '471913134717159',
+        xfbml      : true,
+        version    : 'v13.0'
+    });
+    FB.AppEvents.logPageView();
+};
+
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+    </script>
+</body>
+
+</html>
