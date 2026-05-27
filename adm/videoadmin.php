@@ -1,0 +1,35 @@
+<?php
+session_start();
+require_once dirname(__FILE__).'/config_auth.php';
+require_once CLASS_DIR.'/backendpagebar.class.php';
+
+require_once LIBS_DIR.'/function.php';
+require_once(LIBS_DIR.'/init_smarty.php');
+require_once(LIBS_DIR.'/init_db.php');
+$perpage=8;
+$page=(int)$_GET['page'];
+
+
+if(!$page)
+	$page=1;
+
+  
+$smarty->assign('nav', 2);
+$sql="SELECT  SQL_CALC_FOUND_ROWS * FROM `video`  ORDER BY `id` DESC LIMIT ".$perpage*($page-1).",$perpage ";
+$itemList=$db->get_results($sql);
+$result1 = $db->query_first("SELECT FOUND_ROWS() AS C;");
+$total = $result1['C'];
+
+$url=BackendPagebar::getCurrentPageUrl();
+$pagebar=new BackendPagebar('page',$perpage,$page,$total,$url);
+
+
+$smarty->assign('itemList',$itemList);
+
+$smarty->assign('pagebar',$pagebar->show());
+//$smarty->caching =2;
+//if(!$smarty->isCached('index.html')){
+//bloger
+//}
+//$smarty->cache_lifetime = 36000;
+$smarty->display("adm/videoadmin.html");
